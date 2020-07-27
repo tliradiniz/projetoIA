@@ -1,0 +1,111 @@
+<div *ngIf="currentUser" class="edit-form">
+  <h4>User</h4>
+  <form 
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="currentUser.name"
+        required
+        minlength="3"
+        maxlength="255"
+        name="name"
+        #name="ngModel"
+      />
+      <div class="alert-danger" *ngIf="f.submitted && name.invalid">
+        <div *ngIf="name.errors.required">Nome requerido</div>
+        <div *ngIf="name.errors.minlength">
+          O nome deve ter pelo menos 3 caracteres
+        </div>
+        <div *ngIf="name.errors.maxlength">
+          O nome deve ter no máximo 255 caracteres
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        [(ngModel)]="currentUser.username"
+        required
+        minlength="3"
+        maxlength="20"
+        name="username"
+        #username="ngModel"
+      />
+      <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+        <div *ngIf="username.errors.required">Username is required</div>
+        <div *ngIf="username.errors.minlength">
+          Username must be at least 3 characters
+        </div>
+        <div *ngIf="username.errors.maxlength">
+          Username must be at most 20 characters
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loggedUser.isAdmin != 'N'" class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        [(ngModel)]="passwordUpdate"
+        required
+        minlength="6"
+        name="password"
+        #password="ngModel"
+      />
+      <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 6 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="currentUser.email"
+        name="email"
+      />
+      <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">
+          Email must be a valid email address
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label><strong>Status:</strong></label>
+      {{ currentUser.published ? "Published" : "Pending" }}
+    </div>
+  </form>
+
+  <button *ngIf="loggedUser.isAdmin != 'N'" class="badge badge-danger mr-2" (click)="deleteUser()">
+    Delete
+  </button>
+
+  <button type="submit" class="badge badge-success" (click)="updateUser()">
+    Update
+  </button>
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentUser">
+  <br />
+  <p>Cannot access this User...</p>
+</div>
