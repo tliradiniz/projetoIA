@@ -4,10 +4,6 @@ import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8080/api/users/';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,14 +17,6 @@ export class UserService {
 
   getUserBoard(): Observable<any> {
     return this.http.get(API_URL + 'user', { responseType: 'text' });
-  }
-
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
 
   getAll() {
@@ -51,8 +39,5 @@ export class UserService {
     return this.http.delete(`${API_URL}${id}`);
   }
 
-  findByTitle(title) {
-    return this.http.get(`${API_URL}?title=${title}`);
-  }
 
 }

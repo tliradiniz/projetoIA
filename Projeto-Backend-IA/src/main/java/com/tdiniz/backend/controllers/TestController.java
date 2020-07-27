@@ -113,7 +113,9 @@ public class TestController {
 			_user.setName(User.getName());
 			_user.setUsername(User.getUsername());
 			_user.setEmail(User.getEmail());
-			_user.setPassword(encoder.encode(User.getPassword()));
+			if (!User.getPassword().isEmpty()) {
+				_user.setPassword(encoder.encode(User.getPassword()));
+			}			
 			_user.setUpdatedDate(dt);
 			return new ResponseEntity<>(userRepository.save(_user), HttpStatus.OK);
 		} else {

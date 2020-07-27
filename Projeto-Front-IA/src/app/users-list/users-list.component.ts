@@ -41,16 +41,4 @@ export class UsersListComponent implements OnInit {
     this.currentUser = user;
     this.currentIndex = index;
   }
-
-  searchTitle() {
-    this.userService.findByTitle(this.title)
-      .subscribe(
-        data => {
-          this.users = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
 }
