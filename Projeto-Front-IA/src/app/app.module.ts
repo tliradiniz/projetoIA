@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserDetailsComponent } from './users-details/users-details.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { EmailDetailsComponent } from './email-details/email-details.component';
+import { EmailListComponent } from './email-list/email-list.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
@@ -23,7 +25,9 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     HomeComponent,
     ProfileComponent,
     UserDetailsComponent,
-    UsersListComponent
+    UsersListComponent,
+    EmailDetailsComponent,
+    EmailListComponent
   ],
   imports: [
     BrowserModule,

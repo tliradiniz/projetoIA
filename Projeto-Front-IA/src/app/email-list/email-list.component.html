@@ -1,0 +1,44 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Envio de E-mail</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let user of users; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveUser(user, i)"
+      >
+        {{ user.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentUser">
+      <h4>User</h4>
+      <div>
+        <label><strong>Nome de Usuário:</strong></label> {{ currentUser.username }}
+      </div>
+      <div>
+        <label><strong>Data de criação:</strong></label>
+        {{ currentUser.createdDate | date: 'dd/MM/yyyy' }}
+      </div>
+      <div>
+        <label><strong>Última data de atualização:</strong></label>
+        {{ currentUser.updatedDate ? (currentUser.updatedDate | date: 'dd/MM/yyyy' ) : "Não atualizado" }}
+      </div>
+      <div>
+        <label><strong>Administrador:</strong></label>
+        {{ admin }}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/email/{{ currentUser.id }}">
+        Enviar e-mail
+      </a>
+    </div>
+
+    <div *ngIf="!currentUser">
+      <br />
+      <p>Por favor selecione um Usuário</p>
+    </div>
+  </div>
+</div>

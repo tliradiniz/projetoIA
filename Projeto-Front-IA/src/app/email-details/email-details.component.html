@@ -1,0 +1,29 @@
+<div *ngIf="currentUser" class="edit-form">
+  <h4>E-mail</h4>
+  <form 
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <div class="form-group">
+      <label for="emailMessage">Mensagem</label>
+
+      <textarea class="form-control"
+      id="emailMessage"
+      [(ngModel)]="emailMessage"
+      required  rows="6" cols="50">
+      </textarea>
+    </div>    
+  </form>
+  <button type="submit" class="badge badge-success" (click)="sendMessage()">
+    Enviar
+  </button>
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentUser">
+  <br />
+  <p>Cannot access this User...</p>
+</div>
