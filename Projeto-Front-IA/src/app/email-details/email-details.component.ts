@@ -15,6 +15,7 @@ export class EmailDetailsComponent implements OnInit {
   message = '';
   passwordUpdate = '';
   loggedUser = '';
+  emailMessage = '';
 
   constructor(
     private userService: UserService,
@@ -47,7 +48,7 @@ export class EmailDetailsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.message = 'The user was updated successfully!';
+          this.message = 'Mensagem enviada com sucesso!';
         },
         error => {
           console.log(error);

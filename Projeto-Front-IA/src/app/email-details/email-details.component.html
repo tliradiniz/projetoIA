@@ -3,23 +3,17 @@
   <form 
     *ngIf="!isSuccessful"
     name="form"
-    (ngSubmit)="f.form.valid && onSubmit()"
     #f="ngForm"
     novalidate
     >
     <div class="form-group">
       <label for="emailMessage">Mensagem</label>
-
-      <textarea class="form-control"
-      id="emailMessage"
-      [(ngModel)]="emailMessage"
-      required  rows="6" cols="50">
-      </textarea>
-    </div>    
-  </form>
+      <textarea [(ngModel)]="form.message" name="emailMessage" id="emailMessage" required  rows="6" cols="50"></textarea>
+    </div>   
   <button type="submit" class="badge badge-success" (click)="sendMessage()">
     Enviar
   </button>
+</form> 
   <p>{{ message }}</p>
 </div>
 

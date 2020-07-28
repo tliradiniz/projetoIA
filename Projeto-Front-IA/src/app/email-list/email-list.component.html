@@ -14,9 +14,12 @@
   </div>
   <div class="col-md-6">
     <div *ngIf="currentUser">
-      <h4>User</h4>
+      <h4>Usuário</h4>
       <div>
         <label><strong>Nome de Usuário:</strong></label> {{ currentUser.username }}
+      </div>
+      <div>
+        <label><strong>E-mail:</strong></label> {{ currentUser.email }}
       </div>
       <div>
         <label><strong>Data de criação:</strong></label>
@@ -24,14 +27,14 @@
       </div>
       <div>
         <label><strong>Última data de atualização:</strong></label>
-        {{ currentUser.updatedDate ? (currentUser.updatedDate | date: 'dd/MM/yyyy' ) : "Não atualizado" }}
+        {{ currentUser.updatedDate ? (currentUser.updatedDate | date: 'dd/MM/yyyy' ) : "Nunca atualizado" }}
       </div>
       <div>
         <label><strong>Administrador:</strong></label>
         {{ admin }}
       </div>
 
-      <a class="badge badge-warning" routerLink="/email/{{ currentUser.id }}">
+      <a class="badge badge-primary" routerLink="/email/{{ currentUser.id }}">
         Enviar e-mail
       </a>
     </div>

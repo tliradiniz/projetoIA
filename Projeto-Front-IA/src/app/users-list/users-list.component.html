@@ -14,21 +14,28 @@
   </div>
   <div class="col-md-6">
     <div *ngIf="currentUser">
-      <h4>User</h4>
+      <h4>Usuário</h4>
       <div>
-        <label><strong>Title:</strong></label> {{ currentUser.title }}
+        <label><strong>Nome de Usuário:</strong></label> {{ currentUser.username }}
       </div>
       <div>
-        <label><strong>Description:</strong></label>
-        {{ currentUser.description }}
+        <label><strong>E-mail:</strong></label> {{ currentUser.email }}
       </div>
       <div>
-        <label><strong>Status:</strong></label>
-        {{ currentUser.published ? "Published" : "Pending" }}
+        <label><strong>Data de criação:</strong></label>
+        {{ currentUser.createdDate | date: 'dd/MM/yyyy' }}
+      </div>
+      <div>
+        <label><strong>Última data de atualização:</strong></label>
+        {{ currentUser.updatedDate ? (currentUser.updatedDate | date: 'dd/MM/yyyy' ) : "Nunca atualizado" }}
+      </div>
+      <div>
+        <label><strong>Administrador:</strong></label>
+        {{ admin }}
       </div>
 
-      <a class="badge badge-warning" routerLink="/users/{{ currentUser.id }}">
-        Edit
+      <a class="badge badge-primary" routerLink="/users/{{ currentUser.id }}">
+        Editar Usuário
       </a>
     </div>
 

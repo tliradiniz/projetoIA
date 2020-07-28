@@ -13,6 +13,7 @@ export class EmailListComponent implements OnInit {
   currentIndex = -1;
   title = '';
   admin = '';
+
   
 
   constructor(private userService: UserService) { }
@@ -41,11 +42,7 @@ export class EmailListComponent implements OnInit {
 
   setActiveUser(user, index) {
     this.currentUser = user;
-    if (this.currentUser.isAdmin == "Y"){
-      this.admin = "Sim"
-    }else{
-      this.admin = "Não"
-    }
+    this.admin = this.userService.checkIfAdmin(user);
     this.currentIndex = index;
   }
 }

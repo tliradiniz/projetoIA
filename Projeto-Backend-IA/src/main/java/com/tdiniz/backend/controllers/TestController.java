@@ -39,7 +39,7 @@ public class TestController {
 	
 	@GetMapping("/all")
 	public String allAccess() {
-		return "Bem vindo(a) a aplicação teste";
+		return "Bem vindo(a) ao teste CRUD";
 	}
 	
 	@GetMapping("/")

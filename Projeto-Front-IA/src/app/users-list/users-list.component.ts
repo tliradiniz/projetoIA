@@ -12,6 +12,7 @@ export class UsersListComponent implements OnInit {
   currentUser = null;
   currentIndex = -1;
   title = '';
+  admin = '';
 
   constructor(private userService: UserService) { }
 
@@ -38,6 +39,7 @@ export class UsersListComponent implements OnInit {
   }
 
   setActiveUser(user, index) {
+    this.admin = this.userService.checkIfAdmin(user);
     this.currentUser = user;
     this.currentIndex = index;
   }

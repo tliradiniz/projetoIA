@@ -18,17 +18,18 @@ import com.tdiniz.backend.security.services.EmailService;
 @RequestMapping("/api/email")
 public class EmailController {
 
-//	@Autowired
-//	private EmailService emailService;
+	@Autowired
+	private EmailService emailService;
 	
-//	@PostMapping("/{id}")
-//	public ResponseEntity<String> send(@RequestBody Email email, @PathVariable("id") long id) {
-//		boolean success = emailService.produce(email);
-//		if(success) {
-//			return new ResponseEntity<String>("Enviado com sucesso.", HttpStatus.OK);				
-//		} else {
-//			return new ResponseEntity<String>("Não enviado.", HttpStatus.EXPECTATION_FAILED);
-//		}
-//	}
+	@PostMapping("/{id}")
+	public ResponseEntity<String> send(@RequestBody Email email, @PathVariable("id") long id) {
+		email.setSenderId(id);
+		boolean success = emailService.produce(email);
+		if(success) {
+			return new ResponseEntity<String>("Enviado com sucesso.", HttpStatus.OK);				
+		} else {
+			return new ResponseEntity<String>("Não enviado.", HttpStatus.EXPECTATION_FAILED);
+		}
+	}
 	
 }

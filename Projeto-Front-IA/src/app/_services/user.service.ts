@@ -11,6 +11,14 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  checkIfAdmin(user){
+    if (user.isAdmin == "Y"){
+      return "Sim";
+    }else{
+      return "Não";
+    }
+  }
+
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
@@ -29,7 +37,7 @@ export class UserService {
 
   create(data) {
     return this.http.post(API_URL + 'create', data);
-  }
+  }  
 
   update(id, data) {
     return this.http.put(`${API_URL}${id}`, data);
