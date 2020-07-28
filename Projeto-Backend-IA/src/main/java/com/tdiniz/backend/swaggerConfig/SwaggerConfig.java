@@ -1,4 +1,4 @@
-package com.tdiniz.backend.swagger;
+package com.tdiniz.backend.swaggerConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

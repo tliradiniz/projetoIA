@@ -1,4 +1,4 @@
-package com.tdiniz.backend.payload.response;
+package com.tdiniz.backend.loginAuth.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tdiniz.backend.models.User;
-import com.tdiniz.backend.payload.response.MessageResponse;
+import com.tdiniz.backend.loginAuth.response.MessageResponse;
 import com.tdiniz.backend.repository.UserRepository;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

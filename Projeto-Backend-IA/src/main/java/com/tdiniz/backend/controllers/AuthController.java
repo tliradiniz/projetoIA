@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tdiniz.backend.payload.request.LoginRequest;
-import com.tdiniz.backend.payload.response.JwtResponse;
+import com.tdiniz.backend.loginAuth.request.LoginRequest;
+import com.tdiniz.backend.loginAuth.response.JwtResponse;
 import com.tdiniz.backend.repository.UserRepository;
 import com.tdiniz.backend.security.jwt.JwtUtils;
 import com.tdiniz.backend.security.services.UserDetailsImpl;

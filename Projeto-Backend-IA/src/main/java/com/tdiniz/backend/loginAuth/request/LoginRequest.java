@@ -1,4 +1,4 @@
-package com.tdiniz.backend.payload.request;
+package com.tdiniz.backend.loginAuth.request;
 import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
