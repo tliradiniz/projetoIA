@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,6 +43,7 @@ public class TestController {
 		return "Bem vindo(a) ao teste CRUD";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/")
 	public ResponseEntity<List<User>> getAllUsers(@RequestParam(required = false) String user) {
 		try {
@@ -60,6 +62,7 @@ public class TestController {
 		}
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable("id") long id) {
 		Optional<User> userData = userRepository.findById(id);
@@ -71,6 +74,7 @@ public class TestController {
 		}
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/create")
 	public ResponseEntity<?> createUser(@RequestBody User User) {
 		try {
@@ -104,6 +108,7 @@ public class TestController {
 		}
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@PutMapping("/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User User) {
 		Optional<User> userData = userRepository.findById(id);
@@ -123,6 +128,7 @@ public class TestController {
 		}
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") long id) {
 		try {

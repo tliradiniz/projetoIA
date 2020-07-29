@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import com.tdiniz.backend.dateUtils.DateUtil;
-
 
 @SpringBootApplication
 public class SpringBootSecurityJwtApplication {

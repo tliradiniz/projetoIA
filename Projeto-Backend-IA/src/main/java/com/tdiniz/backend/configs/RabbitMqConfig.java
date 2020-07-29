@@ -1,4 +1,4 @@
-package com.tdiniz.backend.rabbitConfig;
+package com.tdiniz.backend.configs;
 
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
