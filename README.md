@@ -50,6 +50,7 @@ npm install -g @angular/cli
 - **projeto-backend-ia** possui ainda propriedades de configuração do Redis.
 - **projeto-backend-ia** porta: 8080.
 - **email-job** porta: 8085.
+- Foi utilizado a biblioteca Lombok, que pode necessitar de uma instalação em alguns casos. Caso seja necessário segue um link explicativo: https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
 
 ## Execução
 
