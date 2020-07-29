@@ -51,7 +51,12 @@ export class EmailDetailsComponent implements OnInit {
           this.message = 'Mensagem enviada com sucesso!';
         },
         error => {
-          console.log(error);
+          if (error.status == 200){
+            this.message = 'Mensagem enviada com sucesso!';
+          }else{
+            this.message = 'Um erro ocorreu no envio da mensagem'
+          } 
+
         });
   }
 }
