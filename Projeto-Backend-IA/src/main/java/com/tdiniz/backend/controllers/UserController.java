@@ -28,7 +28,7 @@ import com.tdiniz.backend.repository.UserRepository;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/users")
-public class TestController {
+public class UserController {
 	
 	@Autowired
 	UserRepository userRepository;
