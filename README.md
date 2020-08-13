@@ -8,8 +8,8 @@
     * nome de usuário: **admin**
     * senha: **password**
   * Sistema de envio de tokens para acessar endpoints do sistema utilizando JWT.
-  * Endpoints para o CRUD e para o envio de e-mails.
-  * Sessão do usuário sendo guardada no Redis.
+  * Endpoints para o CRUD e para o envio de e-mails
+  * Sessão do usuário sendo guardada no Redis
   * Utilização do Swagger para criar uma documentação da aplicação
     * url: http://localhost:8080/swagger-ui.html
 
